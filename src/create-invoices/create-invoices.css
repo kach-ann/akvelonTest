@@ -1,0 +1,76 @@
+.create-container {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #f1f3f6;
+}
+
+.container-value {
+    padding: 0 15px 30px 15px;
+}
+
+.create-container h1 {
+    margin-left: 15px;
+}
+
+.create-container h1:after {
+    content:"";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: bottom;
+    width: 83%;
+    margin-right: -90%;
+    margin-left: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.header-of-title {
+    padding-top: 5px;
+}
+
+.form-value {
+
+    background-color: #FFFFFF;
+    margin: 15px;
+    border: solid lightgray 1px;
+}
+
+.form-value form {
+    margin: 15px;
+    border: solid lightgray 1px;
+}
+
+.form-part {
+    padding: 20px 20px 0 20px;
+}
+
+.form-part:last-child {
+    padding-bottom: 30px;
+}
+
+.form-part div {
+    padding-bottom: 8px;
+}
+
+.first-part-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-part input {
+    width: 50%;
+    padding: 4px;
+}
+
+.form-value button {
+    padding: 7px 13px;
+    background-color: blue;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 7%;
+    border: blue;
+    float: right;
+    margin-bottom: 20px;
+
+}
+
+

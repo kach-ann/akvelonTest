@@ -1,0 +1,73 @@
+.invoices-container {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #f1f3f6;
+}
+
+.container-value {
+    padding: 0 15px 30px 15px;
+}
+
+.invoices-container h1 {
+    margin-left: 15px;
+    overflow: hidden;
+}
+
+.invoices-container h1:after {
+    content:"";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: bottom;
+    width: 90%;
+    margin-right: -90%;
+    margin-left: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.header-of-title {
+    padding-top: 5px;
+}
+
+.line {
+    border-left: 2px solid #ccc;
+    padding-left: 10px;
+    margin-left: -15px;
+}
+
+.add-new-invoices, .create-invoices {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    background-color: #FFFFFF;
+}
+
+.add-new-invoices p, .create-invoices p {
+    padding-top: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+.add-new-invoices button {
+    padding: 7px 13px;
+    background-color: blue;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 7%;
+    border: blue;
+}
+
+
+.invoices th, td {
+    text-align: left;
+    width: 25%;
+    padding: 15px 15px;
+}
+
+.invoices tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+.invoices tr:nth-child(even) {
+    background-color: #f1f3f6;
+}
