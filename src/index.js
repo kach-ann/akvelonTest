@@ -1,9 +1,9 @@
-import './main.css';
+import "./main.css";
 
-import invoices from './invoices/invoices'
+import invoices from "./invoices/invoices";
 
 function main() {
-    invoices.render();
+  invoices.render();
 }
 
 main();

@@ -1,48 +1,48 @@
-
-import './create-invoices.css';
-import invoices from '../invoices/invoices';
+import "./create-invoices.css";
+import invoices from "../invoices/invoices";
 
 class Create {
-    render() {
-        document.title = 'invoices';
-        let allPage = document.getElementById('app');
-        allPage.innerHTML=render();
+  render() {
+    document.title = "invoices";
+    let allPage = document.getElementById("app");
+    allPage.innerHTML = render();
 
-        let saveBtn = document.getElementById('saveForm');
-        saveBtn.addEventListener('submit',() => {this.saveInvoice()})
+    let saveBtn = document.getElementById("saveForm");
+    saveBtn.addEventListener("submit", () => {
+      this.saveInvoice();
+    });
+  }
 
-    }
+  saveInvoice() {
+    let number = document.querySelector("input[name='number']").value;
+    let invoiceDate = document.querySelector("input[name='date']").value;
+    let supplyDate = document.querySelector("input[name='supplyDate']").value;
+    let comment = document.querySelector("textarea[name='comment']").value;
 
-    saveInvoice() {
-        let number = document.querySelector("input[name='number']").value;
-        let invoiceDate = document.querySelector("input[name='date']").value;
-        let supplyDate = document.querySelector("input[name='supplyDate']").value;
-        let comment = document.querySelector("textarea[name='comment']").value;
+    let newInvoice = {
+      number: +number,
+      date_created: invoiceDate,
+      date_supplied: supplyDate,
+      comment: comment
+    };
 
-        let newInvoice = {
-            "number": +number,
-            "date_created": invoiceDate,
-            "date_supplied": supplyDate,
-            "comment": comment,
-        };
-
-        fetch('http://localhost:3000/invoices/', {
-            method: 'post',
-            body: JSON.stringify(newInvoice),
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            }
-        }).then(function (response) {
-            console.log(response.json());
-        })
-    }
+    fetch("http://localhost:3000/invoices/", {
+      method: "post",
+      body: JSON.stringify(newInvoice),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    }).then(function(response) {
+      console.log(response.json());
+    });
+  }
 }
 
 const create = new Create();
 export default create;
 
 function render() {
-    return `
+  return `
      <section>
         <div class="create-container">
              <div class="header-of-title">  
