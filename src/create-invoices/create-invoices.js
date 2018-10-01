@@ -49,30 +49,34 @@ function render() {
                   <h1 class="line">Create Invoices</h1>
              </div>
              <div class="form-value">
-                <form id="saveForm">
-                    <div class="form-part">
-                        <div class="">
-                            <div>
-                                <div>Number</div>
-                                <input type="text" name="number" placeholder="000000" required min="0">
-                            </div>
-                            <div>
-                                <div>Invoice Date</div>
-                                <input type="date" name="date" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-part">
-                        <div>Supply Date</div>
-                        <input type="date" name="supplyDate" value="Select Date" required>
-                    </div>
-                    <div class="form-part">
-                        <div>Comment</div>
-                        <textarea name="comment" rows="3" cols="145" required minlength="4"></textarea>
-                    </div>
-                    <div class="form-part"><button type="submit">Save</button></div>
-                    
-                </form>
+                  <form id="saveForm" class="form">
+                  
+                  <div class="row">
+                      <div class="col">
+                           <label for="number">Number</label>
+                           <input id="number" type="text" name="number" placeholder="000000" required min="0">
+                      </div>
+                      <div class="col">
+                          <label for="date">Invoice Date</label>
+                          <input id="date" type="date" name="date" required>
+                      </div>
+                  </div>
+                  
+                  <div class="second-row">
+                      <div class="col">
+                          <label for="supplyDate">Supply Date</label>
+                          <input id="supplyDate" type="date" name="supplyDate" value="Select Date" required>
+                      </div>
+                  </div>
+                  
+                  <div class="comment-row">
+                       <label>Comment</label>
+                       <textarea name="comment" rows="3" cols="145" required minlength="4"></textarea>
+                  </div>
+
+                  <div class="form-part"><button type="submit">Save</button></div>
+                      
+                  </form>
              </div>
              
         </div>
