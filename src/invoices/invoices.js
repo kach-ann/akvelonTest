@@ -7,7 +7,7 @@ class Invoices {
     for (let i = 0; i < invoices.length; i++) {
       let tr = document.createElement("tr");
       tableOfInvoices.appendChild(tr);
-      const create = document.createElement("td");
+      const create_ = document.createElement("td");
       const number = document.createElement("td");
       const supply = document.createElement("td");
       const comment = document.createElement("td");
@@ -16,7 +16,7 @@ class Invoices {
       const del = document.createElement("div");
       const ed = document.createElement("div");
 
-      tr.appendChild(create);
+      tr.appendChild(create_);
       tr.appendChild(number);
       tr.appendChild(supply);
       tr.appendChild(comment);
@@ -27,7 +27,7 @@ class Invoices {
       del.dataset.invoiceId = invoices[i].id;
       ed.dataset.invoiceId = invoices[i].id;
 
-      create.innerHTML = invoices[i].date_created;
+      create_.innerHTML = invoices[i].date_created;
       number.innerHTML = invoices[i].number;
       supply.innerHTML = invoices[i].date_supplied;
       comment.innerHTML = invoices[i].comment;
