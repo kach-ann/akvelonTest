@@ -11,16 +11,37 @@ class Invoices {
       const number = document.createElement("td");
       const supply = document.createElement("td");
       const comment = document.createElement("td");
+
+      const edit = document.createElement("td");
+      const del = document.createElement("div");
+      const ed = document.createElement("div");
+
       tr.appendChild(create);
       tr.appendChild(number);
       tr.appendChild(supply);
       tr.appendChild(comment);
+      edit.appendChild(del);
+      edit.appendChild(ed);
+      tr.appendChild(edit);
+
+      del.dataset.invoiceId = invoices[i].id;
+      ed.dataset.invoiceId = invoices[i].id;
+
       create.innerHTML = invoices[i].date_created;
       number.innerHTML = invoices[i].number;
       supply.innerHTML = invoices[i].date_supplied;
       comment.innerHTML = invoices[i].comment;
+      del.innerHTML = "delete";
+      ed.innerHTML = "edit";
+
+      del.addEventListener("click", () => {
+        fetch("http://localhost:3000/invoices/" + del.dataset.invoiceId, {
+          method: "delete"
+        }).then(this.render.bind(this));
+      });
     }
   }
+
   render() {
     fetch("http://localhost:3000/invoices/")
       .then(function(response) {
@@ -65,6 +86,7 @@ function render() {
                             <th>№</th>
                             <th>Supply</th>
                             <th>Comment</th>
+                            <th>Action</th>
                         </tr>
                     </table>
                 </div>

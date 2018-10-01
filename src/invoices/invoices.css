@@ -73,3 +73,11 @@ td {
 .invoices tr:nth-child(even) {
   background-color: #f1f3f6;
 }
+
+.invoices td div {
+  border: solid #000000 1px;
+  margin-top: 2px;
+  text-align: center;
+  padding: 3px;
+  cursor: pointer;
+}
