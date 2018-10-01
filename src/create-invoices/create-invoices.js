@@ -2,18 +2,36 @@ import "./create-invoices.css";
 import invoices from "../invoices/invoices";
 
 class Create {
-  render() {
+  render(invoiceId) {
     document.title = "invoices";
     let allPage = document.getElementById("app");
     allPage.innerHTML = render();
 
+    if (invoiceId) {
+      fetch("http://localhost:3000/invoices/" + invoiceId, {
+        method: "get"
+      })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(invoice => {
+          document.querySelector("input[name='number']").value = invoice.number;
+          document.querySelector("input[name='date']").value =
+            invoice.date_created;
+          document.querySelector("input[name='supplyDate']").value =
+            invoice.date_supplied;
+          document.querySelector("textarea[name='comment']").value =
+            invoice.comment;
+        });
+    }
+
     let saveBtn = document.getElementById("saveForm");
     saveBtn.addEventListener("submit", () => {
-      this.saveInvoice();
+      this.saveInvoice(invoiceId);
     });
   }
 
-  saveInvoice() {
+  saveInvoice(invoiceId) {
     let number = document.querySelector("input[name='number']").value;
     let invoiceDate = document.querySelector("input[name='date']").value;
     let supplyDate = document.querySelector("input[name='supplyDate']").value;
@@ -26,15 +44,27 @@ class Create {
       comment: comment
     };
 
-    fetch("http://localhost:3000/invoices/", {
-      method: "post",
-      body: JSON.stringify(newInvoice),
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      }
-    }).then(function(response) {
-      console.log(response.json());
-    });
+    if (invoiceId) {
+      fetch("http://localhost:3000/invoices/" + invoiceId, {
+        method: "put",
+        body: JSON.stringify(newInvoice),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      }).then(function(response) {
+        console.log(response.json());
+      });
+    } else {
+      fetch("http://localhost:3000/invoices/", {
+        method: "post",
+        body: JSON.stringify(newInvoice),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      }).then(function(response) {
+        console.log(response.json());
+      });
+    }
   }
 }
 

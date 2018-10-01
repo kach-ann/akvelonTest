@@ -24,9 +24,6 @@ class Invoices {
       edit.appendChild(ed);
       tr.appendChild(edit);
 
-      del.dataset.invoiceId = invoices[i].id;
-      ed.dataset.invoiceId = invoices[i].id;
-
       create_.innerHTML = invoices[i].date_created;
       number.innerHTML = invoices[i].number;
       supply.innerHTML = invoices[i].date_supplied;
@@ -35,9 +32,13 @@ class Invoices {
       ed.innerHTML = "edit";
 
       del.addEventListener("click", () => {
-        fetch("http://localhost:3000/invoices/" + del.dataset.invoiceId, {
+        fetch("http://localhost:3000/invoices/" + invoices[i].id, {
           method: "delete"
         }).then(this.render.bind(this));
+      });
+
+      ed.addEventListener("click", () => {
+        create.render(invoices[i].id);
       });
     }
   }
